@@ -1,4 +1,7 @@
 function code = train(traindir, n)
+
+%taper ceci dans la console : train('data\train\', 8)
+
 % Speaker Recognition: Training Stage
 %
 % Input:
@@ -21,7 +24,7 @@ for i = 1:n                     % train a VQ codebook for each speaker
     file = sprintf('%ss%d.wav', traindir, i);            
     disp(file);
    
-    [s] = audioread(file);
+    [s, fs] = audioread(file);
     
     v = mfcc(s, fs);            % Compute MFCC's
    

@@ -6,33 +6,26 @@ function c = mfcc(s, fs)
 % fs : sample rate in Hz
 %
 
-M = 100; %par defaut
-N = 256; %par defaut
+m = 100; %par defaut
+n = 256; %par defaut
 l = length(s); %longueur de notre echantillon
 
 %ETAPE 1 - Frame blocking
+nb_morceaux = floor((l - n) / m ) + 1;
 
-
-nb_morceaux = floor((l-N)/M + 1);
-
-%decoupage dans une matrice "morceaux"
-%{
-for i = 1:N 
+%decoupage dans une matrice M
+for i = 1:n 
     for j = 1:nb_morceaux %nbFrame -> nb_morceaux
-         morceaux(i, j) = s(((j - 1) * M) + i);  % M=>morceaux
+        
+         morceaux(i, j) = s(((j - 1) * m) + i);  % M=>morceaux
     end 
 end 
-%}
 
 %ETAPE 2 - Windowing et hamming
-frames=windowing(s, N, M);
-%j'ai l'impression que Windowing fait l'etape 1 et 2 en meme temps
+%windowing()
 
 
 %ETAPE 3 - FFT
-for i = 1:nb_morceaux
-fftframes(:,i) = fft(frames(:, i));
-end
 
 %ETAPE 4 - Mel-Frequency
 
