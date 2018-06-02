@@ -27,6 +27,6 @@ for i = 1:n                     % train a VQ codebook for each speaker
     [s, fs] = audioread(file);
     
     v = mfcc(s, fs);            % Compute MFCC's
-   
+   % v : MFCC output, each column contains the MFCC's for one speech frame
     code{i} = vqlbg(v, k);      % Train VQ codebook
 end

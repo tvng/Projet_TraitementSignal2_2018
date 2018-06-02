@@ -41,11 +41,13 @@ end
 %
 % Outputs:      x   a (sparse) matrix containing the filterbank amplitudes
 %                   size(x) = [p, 1+floor(n/2)]
+disp('Coefficients de mel');
+
 p=20;
 amplitudes=melfb(p, N ,fs);
 
- n2 = 1 + floor(N/2);
- ms = amplitudes * abs(fft_frames(1:n2, :)).^2;
+N2 = 1 + floor(N/2);
+ ms = amplitudes * abs(fft_frames(1:N2, :)).^2;
 
 %ETAPE 5 - Cepstrum
 
