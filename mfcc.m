@@ -31,10 +31,21 @@ frames=windowing(s, N, M);
 
 %ETAPE 3 - FFT
 for i = 1:nb_morceaux
-fftframes(:,i) = fft(frames(:, i));
+fft_frames(:,i) = fft(frames(:, i));
 end
 
 %ETAPE 4 - Mel-Frequency
+% Inputs:       p   number of filters in filterbank
+%               n   length of fft
+%               fs  sample rate in Hz
+%
+% Outputs:      x   a (sparse) matrix containing the filterbank amplitudes
+%                   size(x) = [p, 1+floor(n/2)]
+p=20;
+amplitudes=melfb(p, N ,fs);
+
+ n2 = 1 + floor(N/2);
+ ms = amplitudes * abs(fft_frames(1:n2, :)).^2;
 
 %ETAPE 5 - Cepstrum
 
