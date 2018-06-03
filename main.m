@@ -1,12 +1,12 @@
 %QUESTION 2 :afficher signal en domaine temporel
-%clear all
-%[y,Fs]=audioread('data\test\s1.wav');
-%audio2=audioread('data\test\s1.wav');
-%fs=length(audio2);
-%t=0:1/fs:1-1/fs;
-%plot(t,audio2)
-%xlabel('Temps (s)');
-%ylabel('Amplitude');
+clear all
+[y,Fs]=audioread('data\test\s1.wav');
+audio2=audioread('data\test\s1.wav');
+fs=length(audio2);
+t=0:1/fs:1-1/fs;
+plot(t,audio2)
+xlabel('Temps (s)');
+ylabel('Amplitude');
 
 %QUESTION 2 : representaiton discrete du signal en temporel
 %clear all
@@ -70,5 +70,5 @@
 %ylabel('6th Dimension');
 
 %QUESTION 9
-code = train('data\train\', 8);
-test('data\test\', 8, code);
+%code = train('data\train\', 8);
+%test('data\test\', 8, code);

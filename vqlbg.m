@@ -21,7 +21,7 @@ for i = 1:log2(k) %k nbre de centroids quon veut extraire. repeat until codebook
   while (1 == 1) %tant quon est pas ok avec la precision. the average distance falls below a preset threshold
         
         % 2. Double the size of the codebook by splitting each current codebook yn; 
-        %where n varies from 1 to the current size of the codebook, and ? is a splitting parameter 
+        %where n varies from 1 to the current size of the codebook, and e is a splitting parameter 
         
         %3. Cluster Vectors - Nearest-Neighbor Search: for each training vector, find the codeword in the current
         %codebook that is closest (in terms of similarity measurement), and
